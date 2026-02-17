@@ -20,7 +20,7 @@ const translations: Record<Locale, Record<string, string>> = {
 
     // Hero
     "hero.label": "full-stack dev, human being",
-    "hero.headline": "Fullstack (Node \u00b7 React \u00b7 TypeScript) \u2014 backend-focused",
+    "hero.headline": "Fullstack (Node \u00b7 React \u00b7 TypeScript) ",
     "hero.subheadline": "I deliver scalable APIs, tests and automated deploys \u2014 clarity and end\u2011to\u2011end delivery.",
     "hero.cta.primary": "Contact me",
     "hero.cta.secondary": "See projects",
