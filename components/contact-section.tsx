@@ -30,7 +30,7 @@ export function ContactSection() {
 
           {/* CTA */}
           <a
-            href="mailto:contato@s1m0n.com.br"
+            href="mailto:lucasimonmendes@hotmail.com"
             className="mt-8 inline-flex items-center gap-2 rounded-sm border-2 border-saas-blue bg-saas-blue px-8 py-3.5 text-sm font-semibold text-cloud transition-all hover:bg-saas-blue/90 hover:-rotate-1"
           >
             {t("contact.cta")}
@@ -44,7 +44,7 @@ export function ContactSection() {
             <p className="mb-4 font-mono text-xs text-slate/50 lowercase">{t("contact.or")}</p>
             <div className="flex items-center justify-center gap-6">
               <a
-                href="https://github.com/s1m0n"
+                href="https://github.com/lucasimonmendes"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-slate transition-colors hover:text-cloud lowercase"
@@ -53,7 +53,7 @@ export function ContactSection() {
               </a>
               <span className="h-4 w-px bg-line/15" aria-hidden="true" />
               <a
-                href="https://linkedin.com/in/lucas-simon-mendes"
+                href="https://linkedin.com/in/lucasimonmendes"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-slate transition-colors hover:text-cloud lowercase"
@@ -62,7 +62,7 @@ export function ContactSection() {
               </a>
               <span className="h-4 w-px bg-line/15" aria-hidden="true" />
               <a
-                href="mailto:contato@s1m0n.com.br"
+                href="mailto:lucasimonmendes@hotmail.com"
                 className="text-sm font-medium text-slate transition-colors hover:text-cloud lowercase"
               >
                 email

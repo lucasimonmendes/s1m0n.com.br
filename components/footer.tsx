@@ -21,7 +21,7 @@ export function Footer() {
         {/* Social links */}
         <div className="flex items-center gap-4">
           <a
-            href="https://github.com/s1m0n"
+            href="https://github.com/lucasimonmendes"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs text-slate transition-colors hover:text-cloud lowercase"
@@ -30,7 +30,7 @@ export function Footer() {
             github
           </a>
           <a
-            href="https://linkedin.com/in/lucas-simon-mendes"
+            href="https://linkedin.com/in/lucasimonmendes"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs text-slate transition-colors hover:text-cloud lowercase"
