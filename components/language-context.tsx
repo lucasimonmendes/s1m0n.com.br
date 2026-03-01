@@ -93,6 +93,7 @@ const translations: Record<Locale, Record<string, string>> = {
     // CV Button
     "cv.button": "Download CV (PDF)",
     "cv.aria": "Download resume as PDF",
+    "cv.link": "/assets/cv-lucas-simon-mendes-en.pdf",
 
     // Footer
     "footer.bio": "Lucas Simon Mendes \u2014 Fullstack (Node \u00b7 React \u00b7 TypeScript). s1m0n.com.br",
@@ -181,6 +182,7 @@ const translations: Record<Locale, Record<string, string>> = {
     // CV Button
     "cv.button": "Baixar CV (PDF)",
     "cv.aria": "Baixar curr\u00edculo em PDF",
+    "cv.link": "/assets/cv-lucas-simon-mendes-pt.pdf",
 
     // Footer
     "footer.bio": "Lucas Simon Mendes \u2014 Fullstack (Node \u00b7 React \u00b7 TypeScript). s1m0n.com.br",
@@ -269,6 +271,7 @@ const translations: Record<Locale, Record<string, string>> = {
     // CV Button
     "cv.button": "Descargar CV (PDF)",
     "cv.aria": "Descargar curr\u00edculum en PDF",
+    "cv.link": "/assets/cv-lucas-simon-mendes-es.pdf",
 
     // Footer
     "footer.bio": "Lucas Simon Mendes \u2014 Fullstack (Node \u00b7 React \u00b7 TypeScript). s1m0n.com.br",

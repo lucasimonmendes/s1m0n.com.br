@@ -121,7 +121,7 @@ export function HeroSection() {
                 {t("hero.cta.secondary")}
               </a>
               <a
-                href="/assets/cv-lucas-simon-mendes.pdf"
+                href={t("cv.link")}
                 target="_blank"
                 rel="noopener"
                 aria-label={t("cv.aria")}
