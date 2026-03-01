@@ -6,25 +6,25 @@ Bem-vindo ao repositório do meu portfólio pessoal/profissional. Este projeto f
 
 O projeto foi construído utilizando as seguintes tecnologias e bibliotecas:
 
-- **[Next.js](https://nextjs.org/)** (App Router) - Framework React
+- **[Next.js 15](https://nextjs.org/)** (App Router) - Framework React Server Components
 - **[React 19](https://react.dev/)** - Biblioteca JavaScript para construção de interfaces
-- **[TypeScript](https://www.typescriptlang.org/)** - Tipagem estática para JavaScript
-- **[Tailwind CSS](https://tailwindcss.com/)** - Framework de CSS utilitário
-- **[shadcn/ui](https://ui.shadcn.com/)** - Componentes de interface reutilizáveis baseados no Radix UI
-- **[Lucide React](https://lucide.dev/)** - Ícones
-- **[React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/)** - Validação e gerenciamento de formulários
-- **[Next Themes](https://github.com/pacocoursey/next-themes)** - Suporte a Dark Mode
+- **[TypeScript](https://www.typescriptlang.org/)** - Tipagem estática
+- **[Tailwind CSS 4](https://tailwindcss.com/)** - Framework de CSS utilitário
+- **[shadcn/ui](https://ui.shadcn.com/)** - Componentes de interface reutilizáveis
+- **[Jest](https://jestjs.io/) & [React Testing Library](https://testing-library.com/)** - Suíte de testes e componentes
+- **i18n (App Router)** - Internacionalização dinâmica via rotas (`@formatjs/intl-localematcher`)
+- **SEO & Security** - Gerações dinâmicas de Sitemaps, JSON-LD Schemas e Headers HTTP estritos.
 
 ## 📁 Estrutura do Projeto
 
-Abaixo está a estrutura principal do projeto:
+Abaixo está a arquitetura estrutural da aplicação:
 
-- `app/`: Contém as páginas, layouts e o roteamento da aplicação (App Router do Next.js).
-- `components/`: Componentes reutilizáveis da interface (Header, Footer, Sections, componentes do shadcn/ui).
-- `hooks/`: Hooks customizados do React.
-- `lib/`: Funções utilitárias e configurações globais.
-- `public/`: Arquivos estáticos como imagens e ícones.
-- `styles/`: Arquivos globais de estilização CSS.
+- `app/[locale]/`: Layouts e páginas da aplicação renderizadas de acordo com o idioma da rota (`/en`, `/pt`, `/es`).
+- `components/`: Componentes reutilizáveis (Hero, Projects, Process, Footer) e Contextos (Language Provider Client-Side).
+- `proxy.ts`: Middleware de redirecionamento que analisa os _headers_ do usuário e força o idioma correto baseado em localidade.
+- `__tests__/`: Cobertura de Testes Unitários e de Integração usando `Jest` iterando React Server Components e Client Components em conjunto.
+- `lib/` & `hooks/`: Funções e custom hooks globais.
+- `public/assets/`: Ficam armazenados os arquivos servidos para download explícito (como currículos).
 
 ## 🛠️ Como executar o projeto localmente
 
@@ -67,22 +67,23 @@ Certifique-se de ter instalado em sua máquina:
 
 5. Abra o navegador e acesse [http://localhost:3000](http://localhost:3000) para ver o resultado.
 
-## 🌐 Funcionalidades
+## 🌐 Funcionalidades e Arquitetura
 
-- **Internacionalização/Múltiplos Idiomas:** O projeto possui um `LanguageProvider` para suportar diferentes idiomas.
-- **Design Responsivo:** Interface adaptada para dispositivos móveis e desktops.
-- **Dark Mode:** Suporte a tema claro e escuro.
-- **Seções principais:**
-  - Hero (Apresentação Inicial)
-  - Projetos (Exibição de trabalhos)
-  - Processo (Metodologia de trabalho)
-  - Contato (Formulário/Links de contato)
+- **Roteamento Internacional (i18n):** Estrutura no App Router baseada em sub-diretórios (`/[locale]`) suportando ativamente `pt-br`, `en` e `es`. O idioma é inferido via Request Headers pelo arquivo `proxy.ts`.
+- **Testes Abrangentes (Jest + RTL):** O projeto cobre validação de renderização dos componentes Server-side (`Page`), e seus Clients provendo contextos globais.
+- **Segurança e SEO:**
+  - Canonical URLs implementados nativamente na tag html de acordo com o idioma.
+  - WebCores: `sitemap.xml` dinâmico pelas rotas e arquivo `robots.txt` orientando WebCrawlers.
+  - JSON-LD injetado no base layout (`Person` & `WebSite` Schema).
+  - Configuração rigorosa de HTTP Headers (HSTS, Anti-Clickjacking via `X-Frame-Options` e etc).
+- **Design:** Tema escuro estrito usando TailwindCSS 4, totalmente responsivo do mobile ultrawide.
 
 ## 📄 Scripts Disponíveis
 
 No diretório do projeto, você pode rodar os seguintes comandos:
 
-- `pnpm dev`: Inicia o servidor de desenvolvimento.
+- `pnpm dev` ou `npm run dev`: Inicia o servidor de desenvolvimento.
 - `pnpm build`: Cria a versão de produção otimizada da aplicação.
 - `pnpm start`: Inicia a aplicação construída para produção.
-- `pnpm lint`: Executa a verificação de linting no código.
+- `pnpm lint`: Executa a verificação de linting no código via ESLint preconfigurado no Next.
+- `npm run test`: Executa o pacote de testes do Jest passando em cima dos componentes críticos.
