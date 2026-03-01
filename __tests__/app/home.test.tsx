@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react"
-import Page from "@/app/page"
+import Page from "@/app/[locale]/page"
 import { ThemeProvider } from "next-themes"
 
 // Sub-componentes que podem precisar de mock ou que usam hooks que não funcionam bem no JSDOM de primeira
@@ -16,11 +16,15 @@ class IntersectionObserver {
 global.IntersectionObserver = IntersectionObserver as any
 
 describe("Home Page", () => {
-  it("renders the main page with all sections", () => {
+  it("renders the main page with all sections", async () => {
+    // Resolve o mock the params para que o componente servidor seja renderizado no teste React 19 / Next 15
+    const resolvedParams = Promise.resolve({ locale: "en" })
+    const ResolvedPage = await Page({ params: resolvedParams })
+
     // Renderezia a página inteira dentro do ThemeProvider para evitar erros do next-themes
     render(
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-        <Page />
+        {ResolvedPage}
       </ThemeProvider>
     )
 

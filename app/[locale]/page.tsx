@@ -1,4 +1,3 @@
-"use client"
 
 import { LanguageProvider } from "@/components/language-context"
 import { Header } from "@/components/header"
@@ -8,9 +7,15 @@ import { ProcessSection } from "@/components/process-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 
-export default function Page() {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+
   return (
-    <LanguageProvider>
+    <LanguageProvider initialLocale={locale as any}>
       <Header />
       <main>
         <HeroSection />

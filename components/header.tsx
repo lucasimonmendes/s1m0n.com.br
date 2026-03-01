@@ -23,6 +23,13 @@ export function Header() {
     const order: Locale[] = ["en", "pt", "es"]
     const next = order[(order.indexOf(locale) + 1) % order.length]
     setLocale(next)
+
+    // Altera a URL para a rota internacionalizada
+    const currentPath = window.location.pathname
+    const currentHash = window.location.hash
+    // Remove o idioma atual da URL, se existir e troca
+    const newPath = currentPath.replace(`/${locale}`, `/${next}`)
+    window.location.href = `${newPath}${currentHash}`
   }
 
   return (
