@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   description:
     "Full-stack JavaScript developer focused on product. React, Node, TypeScript, PostgreSQL. Building reliable SaaS with proof-driven results.",
   metadataBase: new URL("https://s1m0n.com.br"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Lucas Simon Mendes | s1m0n",
     description: "Full-stack JS (React/Node) focused on product.",
@@ -43,6 +46,22 @@ export default function RootLayout({
         className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Lucas Simon Mendes",
+              url: "https://s1m0n.com.br",
+              jobTitle: "Full-stack Developer",
+              sameAs: [
+                "https://github.com/lucasimonmendes",
+                "https://linkedin.com/in/lucasimonmendes",
+              ],
+            }),
+          }}
+        />
       </body>
     </html>
   )
